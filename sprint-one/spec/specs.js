@@ -38,7 +38,6 @@ define([
       );
 
       it("reports a size of zero for a new stack", function() {
-        debugger;
         expect(stack.size()).to.equal(0);
       });
 
