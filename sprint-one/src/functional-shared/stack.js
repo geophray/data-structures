@@ -10,12 +10,6 @@ var Stack = function() {
 
 };
 
-// var extend = function(to, from) {
-//   for (var key in from) {
-//     to[key] = from[key];
-//   }
-// };
-
 // delegated fallback object
 stackMethods = {};
 
@@ -24,7 +18,6 @@ stackMethods.push = function(value) {
 };
 
 stackMethods.pop = function() {
-  // debugger;
   var indexToRemove = this.size();
   indexToRemove--;
   var toRemove = this.storage[indexToRemove];
@@ -33,9 +26,6 @@ stackMethods.pop = function() {
 };
 
 stackMethods.size = function() {
-  // return Object.keys(this.storage).length;
-  // var keyCount = Object.keys(this.storage).length;
-  // return keyCount;
   return Object.keys(this.storage).length;
 };
 
