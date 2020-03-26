@@ -1,12 +1,12 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  var storage = {};
-  storage.i = 0;
-  _.extend(storage, Stack.stackMethods);
+  var methods = {};
+  methods.storage = {};
+  _.extend(methods, stackMethods);
 
-  var keys = Object.keys(storage);
-  return storage;
+  var keys = Object.keys(methods.storage);
+  return methods;
 
 };
 
@@ -17,24 +17,26 @@ var Stack = function() {
 // };
 
 // delegated fallback object
-Stack.stackMethods = {};
+stackMethods = {};
 
-Stack.stackMethods.push = function(value) {
-  this.storage[this.i] = value;
-  this.i++;
+stackMethods.push = function(value) {
+  this.storage[this.size()] = value;
 };
 
-Stack.stackMethods.pop = function() {
-  this.i--;
-  if (this.i < 0) { this.i = 0; }
-  return this.storage[this.i];
+stackMethods.pop = function() {
+  // debugger;
+  var indexToRemove = this.size();
+  indexToRemove--;
+  var toRemove = this.storage[indexToRemove];
+  delete this.storage[indexToRemove];
+  return toRemove;
 };
 
-Stack.stackMethods.size = function() {
+stackMethods.size = function() {
   // return Object.keys(this.storage).length;
   // var keyCount = Object.keys(this.storage).length;
   // return keyCount;
-  return this.length;
+  return Object.keys(this.storage).length;
 };
 
 

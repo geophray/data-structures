@@ -16,18 +16,8 @@ var Queue = function() {
       max++;
     }
     storage[max] = value;
-
-
-    //console.log(Math.max([]));
-    // var test = [1, 2, 3];
-    // console.log(Math.max(...test))
   };
 
-  /*
-  var tempArray = [1, 2, 3];
-  var max = Math.max(...tempArray);
-  console.log(max);
-  */
 
   someInstance.dequeue = function() {
     var keys = Object.keys(storage);
