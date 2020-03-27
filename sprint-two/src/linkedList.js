@@ -39,16 +39,6 @@ var LinkedList = function() {
       currentNode = currentNode.next;
     }
     return false;
-
-
-    // var nextNode = this.head.next;
-    // if (currentNode.next.value === target) {
-    //   return true;
-    // } else {
-    //   // currentNode.next
-    //   return nextNode.contains(target);
-    // }
-
   };
 
   return list;
