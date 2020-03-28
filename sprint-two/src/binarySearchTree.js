@@ -29,13 +29,13 @@ stackMethods.insert = function(value) {
   }
 };
 
-stackMethods.contains = function(value) {
+stackMethods.contains = function(value) { // O(log n)
 
   if (this.value === value) {
     return true;
-  } else if (this.value < value && this.value.right !== undefined) {
+  } else if (this.value < value && this.right !== undefined) {
     return this.right.contains(value);
-  } else if (this.value > value && this.value.left !== undefined) {
+  } else if (this.value > value && this.left !== undefined) {
     return this.left.contains(value);
   } else {
     return false;
@@ -45,12 +45,21 @@ stackMethods.contains = function(value) {
 
 };
 
-stackMethods.depthFirstLog = function(value) {
+stackMethods.depthFirstLog = function(callback) {
+
+  callback(this.value);
+
+  if (this.left !== undefined) {
+    this.left.depthFirstLog(callback);
+  }
 
 
+  if (this.right !== undefined) {
+    this.right.depthFirstLog(callback);
+  }
 
 };
 
 /*
- * Complexity: What is the time complexity of the above functions?
+ * Complexity: What is the time complexity of the above functions? O(log n)
  */

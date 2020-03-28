@@ -20,6 +20,8 @@ HashTable.prototype.insert = function(k, v) {
 
   bucket.push([k, v]);
 
+  this.resize();
+
 };
 
 HashTable.prototype.retrieve = function(k) {
@@ -48,7 +50,17 @@ HashTable.prototype.remove = function(k) {
 
   });
 
+  this.resize();
+
 };
+
+HashTable.prototype.resize = function() {
+
+
+
+};
+
+
 
 
 
